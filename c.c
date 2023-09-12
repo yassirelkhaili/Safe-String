@@ -37,19 +37,19 @@ int main()
         if(res == NULL)
         {
             ft_putstr(error);
-            return 0;
+            return 1;
         }
         res[length] = ch;
         length++;
     }
-    res = (char *)realloc(res, (length + 1) * sizeof(char));
     res[length] = '\0';
      if(res == NULL)
         {
             ft_putstr(error);
-            return 0;
+            return 1;
         }
         ft_putstr(result);
         ft_putstr(res);
+        free(res);
     return 0;
 }
