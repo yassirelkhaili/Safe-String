@@ -60,7 +60,7 @@ int main()
         if(isNullTerminated(res, size))
             ft_putstr("string is null terminated");
         else
-        ft_putstr("string is not null terminated");
+            ft_putstr("string is not null terminated");
         ft_putstr(result);
         ft_putstr(res);
         free(res);
