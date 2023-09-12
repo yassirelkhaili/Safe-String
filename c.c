@@ -22,6 +22,14 @@ void ft_putstr(char *ptr)
     write(1, "\n", 1);
 }
 
+int isNullTerminated(const char *str, int length) {
+    int i = 0;
+    while (str[i] != '\0') {
+        i++;
+    }
+    return (str[i] == '\0' && i == length);
+}
+
 int main()
 {
     char error[] = "Realloc failed";
@@ -33,7 +41,7 @@ int main()
     ft_putstr(prompt);
     while ((ch = getchar()) != '\n' && ch != EOF)
     {
-        res = (char *)realloc(res, (length + 1) * sizeof(char));
+        res = (char *)realloc(res, length * sizeof(char));
         if(res == NULL)
         {
             ft_putstr(error);
@@ -48,6 +56,11 @@ int main()
             ft_putstr(error);
             return 1;
         }
+        int size = ft_strlen(res);
+        if(isNullTerminated(res, size))
+            ft_putstr("string is null terminated");
+        else
+        ft_putstr("string is not null terminated");
         ft_putstr(result);
         ft_putstr(res);
         free(res);
